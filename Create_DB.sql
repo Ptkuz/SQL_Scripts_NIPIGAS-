@@ -61,7 +61,7 @@ CREATE TABLE Passenger
 	[position] INT NOT NULL,
 	[workplace] INT NOT NULL,
 	[payment] INT NOT NULL,
-	[birthday] DATETIME,
+	[birthday] DATETIME NOT NULL,
 	FOREIGN KEY ([position]) REFERENCES Position([position_id]) ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY ([workplace]) REFERENCES Workplace([workplace_id]) ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY (payment) REFERENCES Payment([payment_id]) ON DELETE CASCADE ON UPDATE CASCADE
