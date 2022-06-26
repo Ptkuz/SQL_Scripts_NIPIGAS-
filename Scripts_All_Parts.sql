@@ -17,6 +17,7 @@ FROM Trip WHERE town_from = 'Воронеж'
 --Поле в результирующей таблице: name.
 
 GO
+-- Я специально добавил несколько пассажиров с одинаковыми именами
 SELECT [name] FROM Passenger
 WHERE LEN([name]) = (SELECT MAX(LEN([name])) FROM Passenger)
 GO
@@ -234,7 +235,7 @@ EXECUTE @RC = [dbo].[SearchWorkplace]
 --Создайте пользовательскую функцию с именем «ConvertBirthday», которая преобразовывает 
 --формат даты рождения пассажира из «2007-05-08 12:35:29.123» в «8 мая 2007, вторник».
 GO
-ALTER FUNCTION dbo.ConvertBirthday(@birthday AS DATETIME)
+CREATE FUNCTION dbo.ConvertBirthday(@birthday AS DATETIME)
 RETURNS NVARCHAR(200)
 AS
 BEGIN
